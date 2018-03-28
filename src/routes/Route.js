@@ -9,14 +9,13 @@ export class Route extends React.Component {
   };
   render() {
     const { routeId } = this.props;
+    // style={{ backgroundColor: routes[routeId].bgColor }}
     return (
       <div
         className="Route"
         style={{ backgroundColor: routes[routeId].bgColor }}
       >
-        <h2>
           {routeId} {routeId} {routeId} {routeId} {routeId} {routeId} {routeId}
-        </h2>
         <p>{routes[routeId].title}</p>
         <p>{routes[routeId].title}</p>
         <p>{routes[routeId].title}</p>
