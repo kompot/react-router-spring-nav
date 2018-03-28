@@ -87,6 +87,11 @@ class App extends Component {
       enter: { opacity: 1, left: 0 },
       leave: { opacity: 1, left: 0 }
     };
+    const styleForwardTitle = {
+      from: { opacity: 0, left: 200 },
+      enter: { opacity: 1, left: 0 },
+      leave: { opacity: 0, left: 0 }
+    };
     const styleCloseStack = {
       from: { opacity: 1, top: 50 },
       enter: { opacity: 1, top: 50 },
@@ -101,6 +106,9 @@ class App extends Component {
     const st = closeStack
       ? styleCloseStack
       : newStack ? styleNewStack : styleForward;
+    const stTitle = closeStack
+      ? styleCloseStack
+      : newStack ? styleNewStack : styleForwardTitle;
     const keys = this.state.stack[this.state.stack.length - 1].map((r, i) => ({
       r,
       i
@@ -131,7 +139,36 @@ class App extends Component {
         </button>
 
         <Transition
-          config={{ tension: 210, friction: 20 }}
+          native
+          config={{ tension: 120, friction:14 }}
+          keys={keysToRender.map(
+            stackRoute => `${stackRoute.r}-${stackRoute.i}`
+          )}
+          {...stTitle}
+        >
+          {keysToRender.map(stackRoute => styles => (
+            <animated.div
+              style={{
+                backgroundColor: "white",
+                position: "absolute",
+                top: 50,
+                bottom: 20,
+                left: 0,
+                right: 0,
+                zIndex: stackRoute.i,
+                // zIndex: routes[stackRoute].zIndex,
+                ...styles
+              }}
+              key={`${stackRoute.r}-${stackRoute.i}`}
+            >
+              {stackRoute.r}
+            </animated.div>
+          ))}
+        </Transition>
+
+        <Transition
+          native
+          config={{ tension: 120, friction: 20 }}
           keys={keysToRender.map(
             stackRoute => `${stackRoute.r}-${stackRoute.i}`
           )}
