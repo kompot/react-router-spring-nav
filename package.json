@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "history": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "popmotion": "^8.1.22",
+    "react": "^16.3.0-rc",
+    "react-dom": "^16.3.0-rc",
+    "react-pose": "^1.0.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
