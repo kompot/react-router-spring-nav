@@ -21,13 +21,15 @@ const Item = posed.div({
   enter: {
     x: "0%",
     opacity: 1,
-    transition: ({ from, to }) => tween({ from, to, ease: easing.easeInOut, duration: 300 })
+    transition: ({ from, to }) =>
+      tween({ from, to, ease: easing.easeInOut, duration: 300 })
   },
   exit: {
     x: "100%",
     opacity: 0,
-    transition: ({ from, to }) => tween({ from, to, ease: easing.easeInOut, duration: 300 })
-  },
+    transition: ({ from, to }) =>
+      tween({ from, to, ease: easing.easeInOut, duration: 300 })
+  }
   // flip: {
   //   transition: tween
   // }
@@ -35,7 +37,7 @@ const Item = posed.div({
 
 const ItemBottom = posed.div({
   enter: { y: "0%", opacity: 1 },
-  exit: { y: "100%", opacity: 1, overflow: "hidden" },
+  exit: { y: "100%", opacity: 1, overflow: "hidden" }
   // flip: {
   //   transition: tween
   // }
